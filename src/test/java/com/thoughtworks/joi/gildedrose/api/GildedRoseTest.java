@@ -1,8 +1,10 @@
-package api;
+package com.thoughtworks.joi.gildedrose.api;
 
-import static org.junit.Assert.*;
-
+import com.thoughtworks.joi.gildedrose.domain.GildedRose;
+import com.thoughtworks.joi.gildedrose.domain.Item;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class GildedRoseTest {
 

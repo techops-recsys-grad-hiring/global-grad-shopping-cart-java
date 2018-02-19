@@ -1,9 +1,9 @@
-package api;
+package com.thoughtworks.joi.gildedrose.domain;
 
 import org.springframework.stereotype.Component;
 
 @Component
-class GildedRose {
+public class GildedRose {
     Item[] items;
 
     public GildedRose () {

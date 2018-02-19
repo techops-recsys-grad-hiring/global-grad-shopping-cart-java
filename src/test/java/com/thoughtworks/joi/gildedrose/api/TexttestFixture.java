@@ -1,4 +1,7 @@
-package api;
+package com.thoughtworks.joi.gildedrose.api;
+
+import com.thoughtworks.joi.gildedrose.domain.GildedRose;
+import com.thoughtworks.joi.gildedrose.domain.Item;
 
 public class TexttestFixture {
     public static void main(String[] args) {

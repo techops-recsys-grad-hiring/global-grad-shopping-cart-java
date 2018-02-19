@@ -1,4 +1,4 @@
-package api;
+package com.thoughtworks.joi.gildedrose.domain;
 
 
 public class Item {
