@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class GildedRose {
-    Item[] items;
+    public Item[] items;
 
     public GildedRose () {
         this.items = new Item[]{
