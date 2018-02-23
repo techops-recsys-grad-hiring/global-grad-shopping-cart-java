@@ -8,7 +8,7 @@ Gilded Rose adaption for Thoughtworks Interviews
 
 Go to repository folder and run following command
 <pre><code>
-    vagrant up
+    vagrant up --provision
 </code></pre>
 
 Application will be deployed to <code>localhost:8080</code>
