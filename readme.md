@@ -1,11 +1,36 @@
-# Introduction
+# Welcome to Shopping Cart
 
-This codebase is used during in-office pairing session (Code Laundry) for JOI initiative in North America.
-It's focused on identifying code smells, refactoring, testing legacy codebase while promoting
-conversations around various testing strategies, design strategies etc.
+This is where you can start to get familiar with the problem and what you need to run it.
+This codebase is used during pairing session for JOI initiative.
+It's focused on identifying code smells, refactoring and testing legacy codebase while promoting
+conversations.
 
 ## Problem Statement
 We have an existing shopping cart application, with a small set of eCommerce/shopping cart rules. Rules include calculation of total price, discount and loyalty points calculation. Most of the business logic is implemented in single method ShoppingCart.checkout.
+
+## Technology used 
+* Java
+* Gradle - build tool
+* JUnit - unit testing framework
+
+## Before the interview
+Get familiar with the codebase! Make sure you have the necessary dependencies installed, and that you are able to run the tests. 
+
+## What you need to run it 
+- [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Gradle](https://gradle.org/)
+
+## Build
+
+```console
+$ gradle clean build
+```
+
+## Run Tests
+
+```console
+$ gradle test 
+```
 
 ## Existing Business Rules
 Application code currently has following rules:
