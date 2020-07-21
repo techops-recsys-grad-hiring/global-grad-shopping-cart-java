@@ -11,8 +11,8 @@ import static org.junit.Assert.assertEquals;
 public class ShoppingCartTest {
 
     @Test
-    public void shouldValidateInformationPassedOnToConfirmation() throws Exception {
-        ShoppingCart cart = new ShoppingCart(new Customer("test"), asList(new Product(100, "DIS_10_ABCD", "T")), "ANYTHING");
+    public void shouldValidateInformationPassedOnToConfirmation() {
+        ShoppingCart cart = new ShoppingCart(new Customer("test"), asList(new Product(100, "DIS_10_ABCD", "T")));
         FakeOrderService fakeOrderService = new FakeOrderService();
         cart.setOrderService(fakeOrderService);
         cart.checkout();
@@ -20,7 +20,7 @@ public class ShoppingCartTest {
         assertEquals(90.0, fakeOrderService.actualTotalPrice, 0.0);
     }
 
-    class FakeOrderService extends OrderService {
+    class FakeOrderService implements OrderService {
         double actualTotalPrice;
 
         @Override
