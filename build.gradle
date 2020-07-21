@@ -1,4 +1,4 @@
-group 'com.thoughtworkscom.thoughtworks'
+group 'com.thoughtworks.codepairing'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
