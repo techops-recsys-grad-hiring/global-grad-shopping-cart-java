@@ -32,6 +32,14 @@ $ gradle clean build
 $ gradle test 
 ```
 
+## Run the Sample Application
+
+To understand how this library would be used you can check the `main` method in the `SampleApp` class. If you want to see the results, run:
+
+```console
+$ gradle run
+```
+
 ## Existing Business Rules
 Application code currently has following rules:
 * Calculates total price and total loyalty points earned by the customer.
