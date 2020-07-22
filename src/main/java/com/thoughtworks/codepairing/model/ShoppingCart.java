@@ -8,18 +8,16 @@ public class ShoppingCart {
     //Product and quantity
     private List<Product> products;
     private Customer customer;
-    private String cartState;
 
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
     }
 
-    private OrderService orderService = new OrderService();
+    private OrderService orderService;
 
-    public ShoppingCart(Customer customer, List<Product> products, String cartState) {
+    public ShoppingCart(Customer customer, List<Product> products) {
         this.customer = customer;
         this.products = products;
-        this.cartState = cartState;
     }
 
     public void addProduct(Product product) {
