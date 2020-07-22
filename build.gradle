@@ -2,11 +2,14 @@ group 'com.thoughtworks.codepairing'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.8
-
+ext {
+    javaMainClass = "com.thoughtworks.codepairing.SampleApp"
+}
 repositories {
     mavenCentral()
 }
@@ -19,4 +22,7 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+}
+application {
+    mainClassName = javaMainClass
 }
