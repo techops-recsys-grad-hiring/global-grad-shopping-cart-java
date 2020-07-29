@@ -1,6 +1,6 @@
 package com.thoughtworks.codepairing.model;
 
-import com.thoughtworks.codepairing.service.OrderService;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -10,22 +10,67 @@ import static org.junit.Assert.assertEquals;
 
 public class ShoppingCartTest {
 
-    @Test
-    public void shouldValidateInformationPassedOnToConfirmation() {
-        ShoppingCart cart = new ShoppingCart(new Customer("test"), asList(new Product(100, "DIS_10_ABCD", "T")));
-        FakeOrderService fakeOrderService = new FakeOrderService();
-        cart.setOrderService(fakeOrderService);
-        cart.checkout();
+    public static final int PRICE = 100;
+    public static final String PRODUCT = "Product";
 
-        assertEquals(90.0, fakeOrderService.actualTotalPrice, 0.0);
+    Customer customer;
+
+    @Before
+    public void setUp() throws Exception {
+        customer = new Customer("test");
     }
 
-    class FakeOrderService implements OrderService {
-        double actualTotalPrice;
+    @Test
+    public void shouldCalculatePriceWithNoDiscount() {
+        List<Product> products = asList(new Product(PRICE, "", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
 
-        @Override
-        public void showConfirmation(Customer customer, List<Product> products, double totalPrice, int loyaltyPointsEarned) {
-            this.actualTotalPrice = totalPrice;
-        }
+        assertEquals(100.0, order.totalPrice, 0.0);
+    }
+
+    @Test
+    public void shouldCalculateLoyaltyPointsWithNoDiscount() {
+        List<Product> products = asList(new Product(PRICE, "", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(20, order.loyaltyPoints);
+    }
+
+    @Test
+    public void shouldCalculatePriceFor10PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(90.0, order.totalPrice, 0.0);
+    }
+
+    @Test
+    public void shouldCalculateLoyaltyPointsFor10PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(10, order.loyaltyPoints);
+    }
+
+    @Test
+    public void shouldCalculatePriceFor15PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(85.0, order.totalPrice, 0.0);
+    }
+
+    @Test
+    public void shouldCalculateLoyaltyPointsFor15PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(6, order.loyaltyPoints);
     }
 }

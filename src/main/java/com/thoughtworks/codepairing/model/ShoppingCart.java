@@ -1,19 +1,11 @@
 package com.thoughtworks.codepairing.model;
 
-import com.thoughtworks.codepairing.service.OrderService;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ShoppingCart {
-    //Product and quantity
     private List<Product> products;
     private Customer customer;
-
-    public void setOrderService(OrderService orderService) {
-        this.orderService = orderService;
-    }
-
-    private OrderService orderService;
 
     public ShoppingCart(Customer customer, List<Product> products) {
         this.customer = customer;
@@ -24,12 +16,7 @@ public class ShoppingCart {
         products.add(product);
     }
 
-    public void removeProduct(Product product) {
-        products.remove(product);
-    }
-
-
-    public void checkout() {
+    public Order checkout() {
         double totalPrice = 0;
 
         int loyaltyPointsEarned = 0;
@@ -48,8 +35,11 @@ public class ShoppingCart {
             totalPrice += product.getPrice() - discount;
         }
 
-        orderService.showConfirmation(customer, products, totalPrice, loyaltyPointsEarned);
+        return new Order(totalPrice, loyaltyPointsEarned);
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer: " + customer.getName() + "\n" + "Bought:  \n" + products.stream().map(p -> "- " + p.getName()+ ", "+p.getPrice()).collect(Collectors.joining("\n"));
+    }
 }
