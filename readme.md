@@ -18,18 +18,17 @@ Get familiar with the codebase! Make sure you have the necessary dependencies in
 
 ## What you need to run it 
 - [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Gradle](https://gradle.org/)
 
 ## Build
 
 ```console
-$ gradle clean build
+$ ./gradlew clean build
 ```
 
 ## Run Tests
 
 ```console
-$ gradle test 
+$ ./gradlew test 
 ```
 
 ## Run the Sample Application
@@ -37,7 +36,7 @@ $ gradle test
 To understand how this library would be used you can check the `main` method in the `SampleApp` class. If you want to see the results, run:
 
 ```console
-$ gradle run
+$ ./gradlew run
 ```
 
 ## Existing Business Rules
