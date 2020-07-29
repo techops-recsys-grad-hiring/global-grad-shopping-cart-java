@@ -1,12 +1,20 @@
 package com.thoughtworks.codepairing.model;
 
 public class Order {
-    double totalPrice;
-    int loyaltyPoints;
+    private double totalPrice;
+    private int loyaltyPoints;
 
     public Order(double totalPrice, int loyaltyPointsEarned) {
         this.totalPrice = totalPrice;
         this.loyaltyPoints = loyaltyPointsEarned;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public int getLoyaltyPoints() {
+        return loyaltyPoints;
     }
 
     @Override

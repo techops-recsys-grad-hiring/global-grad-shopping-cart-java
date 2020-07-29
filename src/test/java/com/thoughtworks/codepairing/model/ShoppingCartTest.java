@@ -26,7 +26,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(100.0, order.totalPrice, 0.0);
+        assertEquals(100.0, order.getTotalPrice(), 0.0);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(20, order.loyaltyPoints);
+        assertEquals(20, order.getLoyaltyPoints());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(90.0, order.totalPrice, 0.0);
+        assertEquals(90.0, order.getTotalPrice(), 0.0);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(10, order.loyaltyPoints);
+        assertEquals(10, order.getLoyaltyPoints());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(85.0, order.totalPrice, 0.0);
+        assertEquals(85.0, order.getTotalPrice(), 0.0);
     }
 
     @Test
@@ -71,6 +71,6 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(6, order.loyaltyPoints);
+        assertEquals(6, order.getLoyaltyPoints());
     }
 }
