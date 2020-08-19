@@ -21,7 +21,7 @@ Get familiar with the codebase! Make sure you have the necessary dependencies in
 
 ## What you need to run it
 
-- [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Java 1.8](https://adoptopenjdk.net/?variant=openjdk8)
 
 ## Build
 
