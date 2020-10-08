@@ -1,63 +1,62 @@
-# Welcome to Shopping Cart
+# Boas Vindas, este é o Shopping Cart (Carrinho de Compras)
 
-This is where you can start to get familiar with the problem and what you need to run it.
-This codebase is used during pairing session for JOI initiative.
-It's focused on identifying code smells, refactoring and testing legacy codebase while promoting
-conversations.
+É aqui que você pode começar a se familiarizar com o problema e com o que você precisa para executá-lo.
+Esta base de código é usada durante a sessão de pareamento do processo seletivo.
+É focado em identificar más práticas de código (_code smells_), refatoração e teste da base de código legada, enquanto permite
+conversar e aprendermos umas com os outras.
 
-*Read this in other languages: [English](README.md), [Português do Brasil](README.pt-br.md).*
+*Leia este texto em outro idioma: [English](README.md), [Português do Brasil](README.pt-br.md).*
 
-## Problem Statement
-We have an existing shopping cart application, with a small set of eCommerce/shopping cart rules. Rules include calculation of total price, discount and loyalty points calculation. Most of the business logic is implemented in single method ShoppingCart.checkout.
+## Descrição do problema
+Existe uma aplicação de carrinho de compras, com um pequeno conjunto de regras de comércio eletrônico/carrinho de compras. As regras incluem cálculo de preço total, desconto e cálculo de pontos de fidelidade. A maior parte da lógica de negócios é implementada em um único método ShoppingCart.checkout. Este código foi pensado como uma biblioteca, parte de um sistema maior que não vai ser abordado nesta etapa do processo.
 
-## Technology used 
+## Tecnologias utlizadas
 * Java
-* Gradle - build tool
-* JUnit - unit testing framework
+* Gradle - ferramenta de construção e execução (build)
+* JUnit - biblioteca (ou framework) de testes unitários
 
-## Before the interview
-Get familiar with the codebase! Make sure you have the necessary dependencies installed, and that you are able to run the tests. 
+## Antes da entrevista
+Familiarize-se com a base de código! Certifique-se de ter as dependências necessárias instaladas e de poder executar os testes.
 
-## What you need to run it 
+## O que você precisa para executá-lo
 - [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-## Build
+## Construir (build)
 
 ```console
 $ ./gradlew clean build
 ```
 
-## Run Tests
+## Executar os testes
 
 ```console
 $ ./gradlew test 
 ```
 
-## Run the Sample Application
+## Executar a aplicação de demonstração
 
-To understand how this library would be used you can check the `main` method in the `SampleApp` class. If you want to see the results, run:
+Para entender como essa biblioteca seria usada, você pode verificar o método `main` na classe` SampleApp`. Se você quiser ver os resultados, execute:
 
 ```console
 $ ./gradlew run
 ```
 
-## Existing Business Rules
-Application code currently has following rules:
-* Calculates total price and total loyalty points earned by the customer.
-* Products with product code starting with DIS_10 have a 10% discount applied.
-* Products with product code starting with DIS_15 have a 15% discount applied.
-* Loyalty points are earned more when the product is not under any offer.
-    - Customer earns 1 point on every $5 purchase.
-    - Customer earns 1 point on every $10 spent on a product with 10% discount.
-    - Customer earns 1 point on every $15 spent on a product with 15% discount.
+## Regras de negócios existentes
+
+A biblioteca atualmente possui as seguintes regras de negócio implementadas:
+* Cálculo do preço total e do total de pontos de fidelidade ganhos pelo cliente.
+* Produtos com código de produto começando com DIS_10 têm um desconto de 10% aplicado.
+* Produtos com código de produto começando com DIS_15 têm um desconto de 15% aplicado.
+* Mais pontos de fidelidade são obtidos quando o produto não tem nenhum desconto aplicado:
+    - O cliente ganha 1 ponto em cada compra de $5.
+    - O cliente ganha 1 ponto a cada $ 10 gastos em um produto com 10% de desconto.
+    - O cliente ganha 1 ponto a cada US $ 15 gastos em um produto com 15% de desconto.
 
 
 
-## Extension tasks
-1. Implement a discount of 20%, the products eligible for which will be identified by the product code starting with "DIS_20". On purchase of each such product, the customer earns, 1 loyalty point for every $20 spent
+## Tarefas de extensão do código
+1. Implementar um desconto de 20%, cujos produtos elegíveis serão identificados pelo código do produto iniciando por "DIS_20". Na compra de cada um desses produtos o cliente ganha 1 ponto de fidelidade para cada $ 20 gastos.
 
-2. Implement an offer on group of products, eg. "Buy 2 get 1 free" on specific products identified by product code starting with "BULK_BUY_2_GET_1"
+2. Implementar uma oferta em um grupo de produtos, por exemplo. "Compre 2 e leve 1 grátis" em produtos específicos identificados pelo código do produto começando com "BULK_BUY_2_GET_1".
 
-3. Implement a discount of 5% which is applicable on total purchase above $500
-
-
+3. Implementar um desconto de 5% que é aplicável na compra total acima de $500.
