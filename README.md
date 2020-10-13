@@ -1,5 +1,8 @@
 # Welcome to Shopping Cart
 
+
+*Read this in other languages: [English](README.md), [Português do Brasil](README.pt-br.md).*
+
 This is where you can start to get familiar with the problem and what you need to run it.
 This codebase is used during pairing session for JOI initiative.
 It's focused on identifying code smells, refactoring and testing legacy codebase while promoting
