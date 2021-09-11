@@ -1,0 +1,21 @@
+Existing Business Rules
+Application code currently has following rules:
+
+Calculates total price and total loyalty points earned by the customer.
+Products with product code starting with DIS_10 have a 10% discount applied.
+Products with product code starting with DIS_15 have a 15% discount applied.
+Loyalty points are earned more when the product is not under any offer.
+Customer earns 1 point on every $5 purchase.
+Customer earns 1 point on every $10 spent on a product with 10% discount.
+Customer earns 1 point on every $15 spent on a product with 15% discount.
+
+现有的业务规则
+应用程序代码目前有以下规则:
+
+计算客户获得的总价格和总忠诚点数。
+产品代码以DIS_10开头的产品有10%的折扣。
+产品代码以DIS_15开头的产品有15%的折扣。
+当产品不提供任何优惠时，忠诚度积分会更高。
+顾客每购买5美元可获得1分。
+顾客在产品上每花10美元就有10%的折扣。
+顾客每花15美元购买15%折扣的产品就能获得1分。
