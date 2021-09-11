@@ -1,3 +1,48 @@
+Welcome to Shopping Cart
+Read this in other languages: English, Português do Brasil.
+欢迎来到购物车
+用其他语言阅读:英语，Português do Brasil。
+
+This is where you can start to get familiar with the problem and what you need to run it. This codebase is used during pairing session for JOI initiative. It's focused on identifying code smells, refactoring and testing legacy codebase while promoting conversations.
+在这里，您可以开始熟悉问题以及运行它所需的内容。此代码库用于JOI计划的配对会话。它专注于识别代码气味，重构和测试遗留代码库，同时促进对话。
+
+Problem Statement
+We have an existing shopping cart application, with a small set of eCommerce/shopping cart rules. Rules include calculation of total price, discount and loyalty points calculation. Most of the business logic is implemented in single method ShoppingCart.checkout.
+问题陈述
+我们有一个现有的购物车应用程序，包含一组电子商务/购物车规则。规则包括总价的计算，折扣和忠诚度积分的计算。大多数业务逻辑都是用单个方法ShoppingCart.checkout实现的。
+
+Technology used
+Java
+Gradle - build tool
+JUnit - unit testing framework
+技术的使用
+Java
+Gradle -构建工具
+单元测试框架
+
+Before the interview
+Get familiar with the codebase! Make sure you have the necessary dependencies installed, and that you are able to run the tests.
+在面试前
+熟悉代码库!确保您已经安装了必要的依赖项，并且能够运行测试。
+
+What you need to run it
+你需要什么来运行它
+
+Java 1.8
+
+Build
+
+./gradlew clean build
+
+Run Tests
+
+./gradlew test
+
+Run the Sample Application
+To understand how this library would be used you can check the main method in the SampleApp class. If you want to see the results, run:
+
+./gradlew run
+
 Existing Business Rules
 Application code currently has following rules:
 
