@@ -1,6 +1,8 @@
 package com.thoughtworks.codepairing.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ShoppingCart {
@@ -18,21 +20,37 @@ public class ShoppingCart {
 
     public Order checkout() {
         double totalPrice = 0;
-
         int loyaltyPointsEarned = 0;
-        for (Product product : products) {
+
+        Map<String, List<Product>> productCodeMap = products.stream()
+                .collect(Collectors.groupingBy(product -> product.getProductCode()));
+
+
+        for (Map.Entry<String, List<Product>> products : productCodeMap.entrySet()) {
+            String productCode = products.getKey();
+            List<Product> productList = products.getValue();
+            double price = productList.get(0).getPrice();
+
+            int productCount = productList.size();
+
             double discount = 0;
-            if (product.getProductCode().startsWith("DIS_10")) {
-                discount = (product.getPrice() * 0.1);
-                loyaltyPointsEarned += (product.getPrice() / 10);
-            } else if (product.getProductCode().startsWith("DIS_15")) {
-                discount = (product.getPrice() * 0.15);
-                loyaltyPointsEarned += (product.getPrice() / 15);
+            if (productCode.startsWith("DIS_10")) {
+                discount = (price * 0.1);
+                loyaltyPointsEarned += (price / 10);
+            } else if (productCode.startsWith("DIS_15")) {
+                discount = (price * 0.15);
+                loyaltyPointsEarned += (price / 15);
+            }  else if (productCode.startsWith("DIS_20")) {
+                discount = (price * 0.20);
+                loyaltyPointsEarned += (price / 20);
+            } else if (productCode.startsWith("BULK_BUY_2_GET_1")) {
+                discount = (productCount / 3) * price;
+                //loyaltyPointsEarned += (price / 20);
             } else {
-                loyaltyPointsEarned += (product.getPrice() / 5);
+                loyaltyPointsEarned += (price / 5);
             }
 
-            totalPrice += product.getPrice() - discount;
+            totalPrice = totalPrice + (price * productCount) - discount;
         }
 
         return new Order(totalPrice, loyaltyPointsEarned);
