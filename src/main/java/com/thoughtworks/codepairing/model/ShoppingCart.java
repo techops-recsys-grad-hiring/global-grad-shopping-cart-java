@@ -1,5 +1,7 @@
 package com.thoughtworks.codepairing.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,22 +19,22 @@ public class ShoppingCart {
     }
 
     public Order checkout() {
-        double totalPrice = 0;
+        var totalPrice = BigDecimal.ZERO;
 
         int loyaltyPointsEarned = 0;
         for (Product product : products) {
-            double discount = 0;
+            var discount = BigDecimal.ZERO;
             if (product.getProductCode().startsWith("DIS_10")) {
-                discount = (product.getPrice() * 0.1);
-                loyaltyPointsEarned += (product.getPrice() / 10);
+                discount = (product.getPrice().multiply(new BigDecimal("0.10")));
+                loyaltyPointsEarned += (product.getPrice().divide(BigDecimal.valueOf(10), RoundingMode.DOWN).intValue());
             } else if (product.getProductCode().startsWith("DIS_15")) {
-                discount = (product.getPrice() * 0.15);
-                loyaltyPointsEarned += (product.getPrice() / 15);
+                discount = (product.getPrice().multiply(new BigDecimal("0.15")));
+                loyaltyPointsEarned += (product.getPrice().divide(BigDecimal.valueOf(15), RoundingMode.DOWN).intValue());
             } else {
-                loyaltyPointsEarned += (product.getPrice() / 5);
+                loyaltyPointsEarned += (product.getPrice().divide(BigDecimal.valueOf(5), RoundingMode.DOWN)).intValue();
             }
 
-            totalPrice += product.getPrice() - discount;
+            totalPrice = totalPrice.add(product.getPrice().subtract(discount));
         }
 
         return new Order(totalPrice, loyaltyPointsEarned);

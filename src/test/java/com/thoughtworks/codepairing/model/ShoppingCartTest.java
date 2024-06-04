@@ -3,13 +3,14 @@ package com.thoughtworks.codepairing.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingCartTest {
 
-    public static final int PRICE = 100;
+    public static final BigDecimal PRICE = BigDecimal.valueOf(100);
     public static final String PRODUCT = "Product";
 
     Customer customer;
@@ -25,7 +26,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(100.0, order.getTotalPrice(), 0.0);
+        assertEquals(BigDecimal.valueOf(100), order.getTotalPrice());
     }
 
     @Test
@@ -43,7 +44,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(90.0, order.getTotalPrice(), 0.0);
+        assertEquals(new BigDecimal("90.00"), order.getTotalPrice());
     }
 
     @Test
@@ -61,7 +62,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(85.0, order.getTotalPrice(), 0.0);
+        assertEquals(new BigDecimal("85.00"), order.getTotalPrice());
     }
 
     @Test

@@ -1,15 +1,17 @@
 package com.thoughtworks.codepairing.model;
 
+import java.math.BigDecimal;
+
 public class Order {
-    private double totalPrice;
+    private BigDecimal totalPrice;
     private int loyaltyPoints;
 
-    public Order(double totalPrice, int loyaltyPointsEarned) {
+    public Order(BigDecimal totalPrice, int loyaltyPointsEarned) {
         this.totalPrice = totalPrice;
         this.loyaltyPoints = loyaltyPointsEarned;
     }
 
-    public double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
