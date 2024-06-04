@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingCartTest {
@@ -22,7 +21,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculatePriceWithNoDiscount() {
-        List<Product> products = asList(new Product(PRICE, "", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
@@ -31,7 +30,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculateLoyaltyPointsWithNoDiscount() {
-        List<Product> products = asList(new Product(PRICE, "", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
@@ -40,7 +39,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculatePriceFor10PercentDiscount() {
-        List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
@@ -49,7 +48,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculateLoyaltyPointsFor10PercentDiscount() {
-        List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
@@ -58,7 +57,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculatePriceFor15PercentDiscount() {
-        List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
@@ -67,7 +66,7 @@ public class ShoppingCartTest {
 
     @Test
     public void shouldCalculateLoyaltyPointsFor15PercentDiscount() {
-        List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
+        List<Product> products = List.of(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
