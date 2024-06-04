@@ -6,10 +6,12 @@ apply plugin: 'application'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.8
-ext {
-    javaMainClass = "com.thoughtworks.codepairing.SampleApp"
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
+
 repositories {
     mavenCentral()
 }
@@ -24,5 +26,6 @@ test {
     }
 }
 application {
-    mainClassName = javaMainClass
+    mainClassName = "com.thoughtworks.codepairing.SampleApp"
 }
+
