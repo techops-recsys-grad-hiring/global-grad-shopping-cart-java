@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingCartTest {
 
-    public static final int PRICE = 100;
+    public static final int PRICE = 10000;
     public static final String PRODUCT = "Product";
 
     Customer customer;
@@ -25,7 +25,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(100.0, order.getTotalPrice(), 0.0);
+        assertEquals(10000, order.getTotalPriceCents());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(90.0, order.getTotalPrice(), 0.0);
+        assertEquals(9000, order.getTotalPriceCents());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(85.0, order.getTotalPrice(), 0.0);
+        assertEquals(8500, order.getTotalPriceCents(), 0.0);
     }
 
     @Test

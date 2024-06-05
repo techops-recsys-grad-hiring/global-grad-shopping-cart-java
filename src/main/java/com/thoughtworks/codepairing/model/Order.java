@@ -1,16 +1,16 @@
 package com.thoughtworks.codepairing.model;
 
 public class Order {
-    private double totalPrice;
+    private int totalPriceCents;
     private int loyaltyPoints;
 
-    public Order(double totalPrice, int loyaltyPointsEarned) {
-        this.totalPrice = totalPrice;
+    public Order(int totalPriceCents, int loyaltyPointsEarned) {
+        this.totalPriceCents = totalPriceCents;
         this.loyaltyPoints = loyaltyPointsEarned;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public int getTotalPriceCents() {
+        return totalPriceCents;
     }
 
     public int getLoyaltyPoints() {
@@ -19,6 +19,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Total price: " + totalPrice + "\n" + "Will receive " + loyaltyPoints + " loyalty points";
+        return "Total price: " + totalPriceCents / 100 + "." + totalPriceCents % 100 + "\n" + "Will receive " + loyaltyPoints + " loyalty points";
     }
 }

@@ -17,22 +17,22 @@ public class ShoppingCart {
     }
 
     public Order checkout() {
-        double totalPrice = 0;
+        int totalPrice = 0;
 
         int loyaltyPointsEarned = 0;
         for (Product product : products) {
-            double discount = 0;
+            int discountCents = 0;
             if (product.getProductCode().startsWith("DIS_10")) {
-                discount = (product.getPrice() * 0.1);
-                loyaltyPointsEarned += (product.getPrice() / 10);
+                discountCents = (int) (product.getPriceCents() * 0.1);
+                loyaltyPointsEarned += (product.getPriceCents() / 1000);
             } else if (product.getProductCode().startsWith("DIS_15")) {
-                discount = (product.getPrice() * 0.15);
-                loyaltyPointsEarned += (product.getPrice() / 15);
+                discountCents = (int) (product.getPriceCents() * 0.15);
+                loyaltyPointsEarned += (product.getPriceCents() / 1500);
             } else {
-                loyaltyPointsEarned += (product.getPrice() / 5);
+                loyaltyPointsEarned += (product.getPriceCents() / 500);
             }
 
-            totalPrice += product.getPrice() - discount;
+            totalPrice += product.getPriceCents() - discountCents;
         }
 
         return new Order(totalPrice, loyaltyPointsEarned);
@@ -40,6 +40,7 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
-        return "Customer: " + customer.getName() + "\n" + "Bought:  \n" + products.stream().map(p -> "- " + p.getName()+ ", "+p.getPrice()).collect(Collectors.joining("\n"));
+        return "Customer: " + customer.getName() + "\n" + "Bought:  \n" +
+                products.stream().map(p -> "- " + p.getName()+ ", "+p.getPriceCents()/100 + "." + p.getPriceCents()%100).collect(Collectors.joining("\n"));
     }
 }
