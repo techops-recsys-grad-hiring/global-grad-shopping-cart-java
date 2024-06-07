@@ -1,17 +1,19 @@
 package com.thoughtworks.codepairing.model;
 
+import javax.money.MonetaryAmount;
+
 public class Product {
-    private final double price;
+    private final MonetaryAmount price;
     private final String productCode;
     private final String name;
 
-    public Product(double price, String productCode, String name) {
+    public Product(MonetaryAmount price, String productCode, String name) {
         this.price = price;
         this.productCode = productCode;
         this.name = name;
     }
 
-    public double getPrice() {
+    public MonetaryAmount getPrice() {
         return price;
     }
 

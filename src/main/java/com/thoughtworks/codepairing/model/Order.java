@@ -1,15 +1,17 @@
 package com.thoughtworks.codepairing.model;
 
+import javax.money.MonetaryAmount;
+
 public class Order {
-    private double totalPrice;
+    private MonetaryAmount totalPrice;
     private int loyaltyPoints;
 
-    public Order(double totalPrice, int loyaltyPointsEarned) {
+    public Order(MonetaryAmount totalPrice, int loyaltyPointsEarned) {
         this.totalPrice = totalPrice;
         this.loyaltyPoints = loyaltyPointsEarned;
     }
 
-    public double getTotalPrice() {
+    public MonetaryAmount getTotalPrice() {
         return totalPrice;
     }
 

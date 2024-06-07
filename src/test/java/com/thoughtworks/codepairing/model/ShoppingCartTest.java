@@ -2,14 +2,16 @@ package com.thoughtworks.codepairing.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.javamoney.moneta.Money;
 
+import javax.money.MonetaryAmount;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingCartTest {
 
-    public static final int PRICE = 100;
+    public static final MonetaryAmount PRICE = Money.of(100, "USD");
     public static final String PRODUCT = "Product";
 
     Customer customer;
@@ -25,7 +27,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(100.0, order.getTotalPrice(), 0.0);
+        assertEquals("USD 100", order.getTotalPrice().toString(), "0.0 USD");
     }
 
     @Test
@@ -43,7 +45,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(90.0, order.getTotalPrice(), 0.0);
+        assertEquals("USD 90", order.getTotalPrice().toString(), "0.0 USD");
     }
 
     @Test
@@ -61,7 +63,7 @@ public class ShoppingCartTest {
         ShoppingCart cart = new ShoppingCart(customer, products);
         Order order = cart.checkout();
 
-        assertEquals(85.0, order.getTotalPrice(), 0.0);
+        assertEquals("USD 85", order.getTotalPrice().toString(), "0.0 USD");
     }
 
     @Test

@@ -17,6 +17,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.javamoney:moneta:1.4.4'
+    implementation 'javax.money:money-api:1.1'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 }
 
@@ -30,4 +32,3 @@ test {
 application {
     mainClassName = "com.thoughtworks.codepairing.SampleApp"
 }
-
