@@ -22,12 +22,12 @@ public class ShoppingCart {
     }
 
     public Order checkout() {
-        CurrencyUnit currencyUnit = Monetary.getCurrency("USD");
-        MonetaryAmount totalPrice = Money.of(0, currencyUnit);
+        CurrencyUnit USD = Monetary.getCurrency("USD");
+        MonetaryAmount totalPrice = Money.of(0, USD);
 
         int loyaltyPointsEarned = 0;
         for (Product product : products) {
-            MonetaryAmount discount = Money.of(0, currencyUnit);
+            MonetaryAmount discount = Money.of(0, USD);
             if (product.getProductCode().startsWith("DIS_10")) {
                 discount = (product.getPrice().multiply(0.1));
                 loyaltyPointsEarned += (product.getPrice().divide(10)).getNumber().intValue();

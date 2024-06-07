@@ -13,9 +13,9 @@ import java.util.List;
 
 public class SampleApp {
     public static void main(String[] args) {
-        CurrencyUnit currencyUnit = Monetary.getCurrency("USD");
-        Product product1 = new Product(Money.of(10.0, currencyUnit), "DIS_10_PRODUCT1", "product 1");
-        Product product2 = new Product(Money.of(20.0, currencyUnit), "DIS_10_PRODUCT2", "product 2");
+        CurrencyUnit USD = Monetary.getCurrency("USD");
+        Product product1 = new Product(Money.of(10.0, USD), "DIS_10_PRODUCT1", "product 1");
+        Product product2 = new Product(Money.of(20.0, USD), "DIS_10_PRODUCT2", "product 2");
 
         List<Product> products = new ArrayList<>();
         products.add(product1);
@@ -24,7 +24,7 @@ public class SampleApp {
         Customer customer = new Customer("A Customer");
 
         ShoppingCart shoppingCart = new ShoppingCart(customer, products);
-        Product product3 = new Product(Money.of(30.0, currencyUnit), "DIS_10_PRODUCT3", "product 3");
+        Product product3 = new Product(Money.of(30.0, USD), "DIS_10_PRODUCT3", "product 3");
         shoppingCart.addProduct(product3);
         System.out.println(shoppingCart.toString());
 
