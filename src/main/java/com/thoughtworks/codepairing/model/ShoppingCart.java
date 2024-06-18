@@ -24,12 +24,12 @@ public class ShoppingCart {
             int discountCents = 0;
             if (product.getProductCode().startsWith("DIS_10")) {
                 discountCents = (int) (product.getPriceCents() * 0.1);
-                loyaltyPointsEarned += (product.getPriceCents() / 1000);
+                loyaltyPointsEarned += (product.getPriceCents() / 10_00);
             } else if (product.getProductCode().startsWith("DIS_15")) {
                 discountCents = (int) (product.getPriceCents() * 0.15);
-                loyaltyPointsEarned += (product.getPriceCents() / 1500);
+                loyaltyPointsEarned += (product.getPriceCents() / 15_00);
             } else {
-                loyaltyPointsEarned += (product.getPriceCents() / 500);
+                loyaltyPointsEarned += (product.getPriceCents() / 5_00);
             }
 
             totalPrice += product.getPriceCents() - discountCents;
