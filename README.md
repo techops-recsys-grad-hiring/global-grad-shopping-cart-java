@@ -24,7 +24,7 @@ Get familiar with the codebase! Make sure you have the necessary dependencies in
 
 ## What you need to run it
 
-- [Java 1.8](https://adoptopenjdk.net/?variant=openjdk8)
+- [Java 21](https://adoptopenjdk.net/?variant=openjdk21)
 
 ## Build
 
